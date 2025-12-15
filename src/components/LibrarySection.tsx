@@ -140,29 +140,31 @@ const LibrarySection = () => {
           {filteredSubjects.map((subject, idx) => (
             <Card
               key={subject.id}
-              className="group cursor-pointer hover-scale border-2 hover:border-primary transition-all duration-300 overflow-hidden animate-fade-in"
+              className="group cursor-pointer border-2 hover:border-transparent transition-all duration-300 overflow-hidden animate-fade-in relative hover:shadow-2xl hover:shadow-primary/50"
               style={{ animationDelay: `${idx * 0.05}s` }}
             >
-              <div className="p-6">
-                <div className={`w-20 h-20 bg-gradient-to-br ${subject.color} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                  <Icon name={subject.icon as any} className="text-white" size={36} />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-secondary/0 to-accent/0 group-hover:from-primary/10 group-hover:via-secondary/10 group-hover:to-accent/10 transition-all duration-500"></div>
+              
+              <div className="relative p-6 transform group-hover:scale-105 transition-transform duration-300">
+                <div className={`w-20 h-20 bg-gradient-to-br ${subject.color} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-125 group-hover:rotate-3 transition-all duration-500 shadow-lg group-hover:shadow-2xl`}>
+                  <Icon name={subject.icon as any} className="text-white group-hover:scale-110 transition-transform duration-300" size={36} />
                 </div>
                 
-                <h3 className="text-xl font-bold text-center mb-2 group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-bold text-center mb-2 group-hover:text-primary transition-colors duration-300">
                   {subject.name}
                 </h3>
                 
-                <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-3">
+                <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-3 group-hover:text-primary transition-colors duration-300">
                   <Icon name="BookOpen" size={16} />
                   <span>{subject.lessons} уроков</span>
                 </div>
 
-                <Badge variant="secondary" className="w-full justify-center">
+                <Badge variant="secondary" className="w-full justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
                   {subject.category}
                 </Badge>
               </div>
 
-              <div className="h-2 bg-gradient-to-r from-primary via-secondary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
             </Card>
           ))}
         </div>

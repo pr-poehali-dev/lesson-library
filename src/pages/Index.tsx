@@ -1,41 +1,23 @@
-import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import LibrarySection from '@/components/LibrarySection';
-import ContactsSection from '@/components/ContactsSection';
-import FeedbackSection from '@/components/FeedbackSection';
 
 const Index = () => {
-  const [currentSection, setCurrentSection] = useState('home');
+  const navigate = useNavigate();
 
   const handleNavigate = (section: string) => {
-    setCurrentSection(section);
-    const element = document.getElementById(section);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    if (section === 'home') return;
+    navigate(`/${section}`);
   };
 
   return (
     <div className="min-h-screen">
-      <Header currentSection={currentSection} onNavigate={handleNavigate} />
+      <Header currentSection="home" onNavigate={handleNavigate} />
       
       <main>
-        <div id="home">
-          <HeroSection onNavigate={handleNavigate} />
-        </div>
-        
-        <div id="library">
-          <LibrarySection />
-        </div>
-        
-        <div id="contacts">
-          <ContactsSection />
-        </div>
-        
-        <div id="feedback">
-          <FeedbackSection />
-        </div>
+        <HeroSection onNavigate={handleNavigate} />
+        <LibrarySection />
       </main>
 
       <footer className="bg-gradient-to-r from-primary via-secondary to-accent text-white py-8">
