@@ -1,5 +1,6 @@
 import LibrarySection from '@/components/LibrarySection';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import { useNavigate } from 'react-router-dom';
 
 const Library = () => {
@@ -14,6 +15,7 @@ const Library = () => {
     <div className="min-h-screen">
       <Header currentSection="library" onNavigate={handleNavigate} />
       <LibrarySection />
+      <Footer />
     </div>
   );
 };

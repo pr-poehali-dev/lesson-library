@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import LibrarySection from '@/components/LibrarySection';
+import Footer from '@/components/Footer';
 
 const Index = () => {
   const navigate = useNavigate();
@@ -20,12 +21,7 @@ const Index = () => {
         <LibrarySection />
       </main>
 
-      <footer className="bg-gradient-to-r from-primary via-secondary to-accent text-white py-8">
-        <div className="container mx-auto px-4 text-center">
-          <p className="font-semibold mb-2">МКОУ СОШ №1</p>
-          <p className="text-sm opacity-90">© 2024 Все права защищены</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

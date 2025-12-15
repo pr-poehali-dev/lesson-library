@@ -1,5 +1,6 @@
 import ContactsSection from '@/components/ContactsSection';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import { useNavigate } from 'react-router-dom';
 
 const Contacts = () => {
@@ -14,6 +15,7 @@ const Contacts = () => {
     <div className="min-h-screen">
       <Header currentSection="contacts" onNavigate={handleNavigate} />
       <ContactsSection />
+      <Footer />
     </div>
   );
 };
