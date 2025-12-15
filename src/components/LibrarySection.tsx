@@ -1,108 +1,12 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
-
-const subjects = [
-  { 
-    id: 1, 
-    name: 'Математика', 
-    icon: 'Calculator', 
-    color: 'from-blue-500 to-blue-600',
-    lessons: 24, 
-    category: 'Точные науки' 
-  },
-  { 
-    id: 2, 
-    name: 'Русский язык', 
-    icon: 'BookText', 
-    color: 'from-red-500 to-red-600',
-    lessons: 32, 
-    category: 'Гуманитарные науки' 
-  },
-  { 
-    id: 3, 
-    name: 'Литература', 
-    icon: 'Book', 
-    color: 'from-purple-500 to-purple-600',
-    lessons: 28, 
-    category: 'Гуманитарные науки' 
-  },
-  { 
-    id: 4, 
-    name: 'Физика', 
-    icon: 'Atom', 
-    color: 'from-cyan-500 to-cyan-600',
-    lessons: 20, 
-    category: 'Точные науки' 
-  },
-  { 
-    id: 5, 
-    name: 'Химия', 
-    icon: 'FlaskConical', 
-    color: 'from-green-500 to-green-600',
-    lessons: 18, 
-    category: 'Естественные науки' 
-  },
-  { 
-    id: 6, 
-    name: 'Биология', 
-    icon: 'Microscope', 
-    color: 'from-emerald-500 to-emerald-600',
-    lessons: 22, 
-    category: 'Естественные науки' 
-  },
-  { 
-    id: 7, 
-    name: 'География', 
-    icon: 'Globe', 
-    color: 'from-teal-500 to-teal-600',
-    lessons: 16, 
-    category: 'Естественные науки' 
-  },
-  { 
-    id: 8, 
-    name: 'История', 
-    icon: 'Landmark', 
-    color: 'from-amber-500 to-amber-600',
-    lessons: 30, 
-    category: 'Гуманитарные науки' 
-  },
-  { 
-    id: 9, 
-    name: 'Информатика', 
-    icon: 'Code', 
-    color: 'from-indigo-500 to-indigo-600',
-    lessons: 26, 
-    category: 'Точные науки' 
-  },
-  { 
-    id: 10, 
-    name: 'Английский язык', 
-    icon: 'Languages', 
-    color: 'from-pink-500 to-pink-600',
-    lessons: 34, 
-    category: 'Языки' 
-  },
-  { 
-    id: 11, 
-    name: 'Искусство', 
-    icon: 'Palette', 
-    color: 'from-fuchsia-500 to-fuchsia-600',
-    lessons: 12, 
-    category: 'Творчество' 
-  },
-  { 
-    id: 12, 
-    name: 'Музыка', 
-    icon: 'Music', 
-    color: 'from-violet-500 to-violet-600',
-    lessons: 14, 
-    category: 'Творчество' 
-  }
-];
+import { subjects } from '@/data/subjects';
 
 const LibrarySection = () => {
+  const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState('Все');
   
   const categories = ['Все', ...new Set(subjects.map(s => s.category))];
@@ -140,6 +44,7 @@ const LibrarySection = () => {
           {filteredSubjects.map((subject, idx) => (
             <Card
               key={subject.id}
+              onClick={() => navigate(`/subject/${subject.slug}`)}
               className="group cursor-pointer border-2 hover:border-transparent transition-all duration-300 overflow-hidden animate-fade-in relative hover:shadow-2xl hover:shadow-primary/50"
               style={{ animationDelay: `${idx * 0.05}s` }}
             >
