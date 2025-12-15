@@ -6,19 +6,19 @@ const ContactsSection = () => {
     {
       icon: 'MapPin',
       title: 'Адрес',
-      info: 'г. Москва, ул. Школьная, д. 1',
+      info: 'ул. Льва Толстого, 12, Чулым',
       color: 'from-red-500 to-red-600'
     },
     {
       icon: 'Phone',
       title: 'Телефон',
-      info: '+7 (495) 123-45-67',
+      info: '+7 (38350) 2-22-56',
       color: 'from-green-500 to-green-600'
     },
     {
       icon: 'Mail',
       title: 'Email',
-      info: 'school1@education.ru',
+      info: 'school1_@mail.ru',
       color: 'from-blue-500 to-blue-600'
     },
     {
